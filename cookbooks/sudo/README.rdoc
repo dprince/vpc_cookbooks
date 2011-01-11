@@ -1,0 +1,19 @@
+= DESCRIPTION:
+Recipes to configure sudo for a set of users.
+
+= REQUIREMENTS:
+None.
+
+= ATTRIBUTES: 
+
+sudo[:users] - an array of users which will be granted sudo (NOPASSWD)
+sudo[:options] - defaults "ALL=(ALL)       NOPASSWD: ALL"
+
+= USAGE:
+
+Example attributes in JSON:
+
+    "sudo": {
+        "users": [ "racker1", "racker2" ]
+    }
+

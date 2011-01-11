@@ -1,0 +1,34 @@
+= DESCRIPTION:
+Recipes to install a Torque Server, Client, and create a system user account
+for job execution. The 'torque::user' account recipe is used to
+setup SSH keys such that scp can be used (instead of rcp) to migrate
+data between the nodes.
+
+= REQUIREMENTS:
+Torque RPMs must be available via Yum. EPEL contains Torque packages
+for RHEL 5.
+
+= ATTRIBUTES: 
+
+torque[:server][:nodes] - an array of hostnames to be added to the torque
+ server nodes files.
+torque[:home] - defaults to /var/torque
+torque[:server_name] - torque server name (defaults localhost)
+ control which set of SSH keys is installed in the job execution
+ users account.
+torque[:job_submission_user] - the name of a user account that will be
+ created with SSH keys setup to support Torque scp data management.
+
+= USAGE:
+
+Example attributes in JSON:
+
+    "torque": {
+        "server": {
+                "nodes": ["boot1"]
+        },
+		"job_user": {
+			"username": "dan"
+		},
+        "server_name": "boot1"
+    }

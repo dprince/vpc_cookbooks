@@ -1,0 +1,29 @@
+{
+  "name": "torque_server",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+        "torque": {
+            "server": {
+                    "nodes": ["boot1"]
+            },
+            "server_name": "boot1"
+        }
+  },
+  "description": "Installs a Torque server and the Job Control application.",
+  "run_list": [
+     "role[boot_server]",
+     "recipe[torque::server]",
+     "recipe[torque::client]",
+     "recipe[torque::user]",
+     "recipe[job_control]"
+  ],
+  "override_attributes": {
+    "job_control": {
+        "auth_username": "myadmin",
+        "auth_password": "mypassword123",
+        "iptables_rule_prefix": "",
+		"rpms": ["job_control/rails-stack-2.3.8-1.x86_64.rpm", "job_control/job-control-1.1.1-1.noarch.rpm"]
+    }
+  }
+}

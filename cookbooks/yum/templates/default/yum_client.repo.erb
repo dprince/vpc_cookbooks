@@ -1,0 +1,20 @@
+[<%= node[:yum][:repo] %>]
+name=<%= node[:yum][:repo_name] %>
+baseurl=<%= node[:yum][:repo_url] %>
+enabled=1
+gpgcheck=<%= node[:yum][:gpgcheck] %>
+<% if not node[:yum][:http_caching].nil? and not node[:yum][:http_caching].empty? %>
+http_caching=<%= node[:yum][:http_caching] %>
+<% end %>
+<% if not node[:yum][:includepkgs].nil? and not node[:yum][:includepkgs].empty? %>
+includepkgs=<%= node[:yum][:includepkgs] %>
+<% end %>
+<% if not node[:yum][:metadata_expire].nil? and not node[:yum][:metadata_expire].empty? %>
+metadata_expire=<%= node[:yum][:metadata_expire] %>
+<% end %>
+<% if not node[:yum][:timeout].nil? and not node[:yum][:timeout].empty? %>
+timeout=<%= node[:yum][:timeout] %>
+<% end %>
+<% if not node[:yum][:retries].nil? and not node[:yum][:retries].empty? %>
+retries=<%= node[:yum][:retries] %>
+<% end %>

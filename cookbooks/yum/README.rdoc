@@ -1,0 +1,50 @@
+= DESCRIPTION:
+Creates a Yum repo from Cloud Files directories and files. The Yum client
+recipe configures a client node to access the Yum repo server.
+
+= REQUIREMENTS:
+Requires the apache2 and cloud_files recipes.
+
+= ATTRIBUTES: 
+
+# Yum client attributes.
+
+yum[:repo_url] - "http://login1/trunk"
+
+# Yum repo attributes.
+
+yum[:repos_base_directory] - the web root where repos will be stored
+yum[:repos] - an array of hashes containing repo configs
+
+Each repos config hash should contain the following settings:
+
+name - the repo name (directory) where RPMs will be stored
+cloud_files_directory_list - list of directories in cloud files that contain
+ RPMs to be downloaded and installed
+most_recent_revisions_only - set this to true to download and include
+ only the most recent revision on the initial download. Subsequent
+ runs of the recipe may download a more recent revision. This is meant
+ to minimize the initial download traffic in downloading the whole repo.
+cloud_files_list - a list of individial RPMs to be downloaded into the
+ repo
+
+= USAGE:
+
+Example JSON config for the yum::repo recipe:
+
+"yum": {
+        "repos_base_directory": "/var/www/repos",
+        "repos": [
+            {
+            "name": "trunk",
+            "cloud_files_directory_list": [ "trunk_rpms" ],
+            "cloud_files_list": [ "job_control/rails-stack-1.0.1-1_2995.noarch.rpm", "job_control/job-control-1.0.0-1.noarch.rpm" ]
+            }
+        ]
+    }
+
+Example JSON config for the yum::client recipe:
+
+"yum": {
+       "repo_url": "http://login1/trunk"
+     }

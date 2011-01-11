@@ -1,0 +1,22 @@
+= DESCRIPTION:
+A set of common Bash and Ruby functions and definitions to push and pull
+files from Rackspace cloud files. Includes a Chef recipe definition that
+provides an easy way to access a Cloud File as a resource.
+
+= REQUIREMENTS:
+Bash, Curl
+
+= ATTRIBUTES: 
+None
+
+= USAGE:
+
+Can be used in Bash or Ruby.
+
+# Example(Bash): download a cloud file
+. /usr/share/local/cloud_files/cloud_files.bash
+download_cloud_file "yumrepos/repo.tar.gz" "repo.tar.gz"
+
+# Example(Ruby): list a cloud files directory in a Chef recipe
+include_recipe "cloud_files"
+CloudFiles.list_cloud_files(directory) {|d| puts d}

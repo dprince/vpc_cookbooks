@@ -1,0 +1,30 @@
+= DESCRIPTION:
+Recipes to install a NFS client and server.
+
+= REQUIREMENTS:
+Firewall rules must exist so that clients can access NFS on the server.
+
+= ATTRIBUTES: 
+
+The following attributes are for NFS clients:
+
+nfs[:mount_point] - local mount point (Defaults to /mnt/share)
+nfs[:server_name] - the server name which will be mounted. (Defaults to boot1).
+
+The following attributes are for NFS servers:
+
+nfs[:export_options] - export options for the share
+
+The following attributes are used by both NFS clients and servers:
+
+nfs[:export_directory] - The NFS directory on the server.
+
+= USAGE:
+
+Example attributes in JSON:
+
+    "nfs": {
+        "server_name": "boot1",
+        "export_directory": "/mnt/share"
+    }
+

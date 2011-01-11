@@ -1,0 +1,12 @@
+= VPC Cookbooks
+
+A set of Chef Cookbooks to help setup VPC projects.
+
+== Description
+
+Chef Cookbooks to install and manage settings up Yum, Torque, NFS, etc
+in VPC (Virtual Private Cloud) server groups.
+
+== Requirements
+
+Written and tested with Chef 0.9 and Centos 5.x.

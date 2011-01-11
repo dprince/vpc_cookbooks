@@ -1,0 +1,11 @@
+<%= @rule_prefix %> -I INPUT 1 -p udp -m state --state NEW --dport 111 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p tcp -m state --state NEW --dport 111 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p tcp -m state --state NEW --dport 2049 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p udp -m state --state NEW --dport 875 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p tcp -m state --state NEW --dport 875 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p udp -m state --state NEW --dport 892 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p tcp -m state --state NEW --dport 893 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p udp -m state --state NEW --dport 32769 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p tcp -m state --state NEW --dport 32803 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p udp -m state --state NEW --dport 662 -j ACCEPT
+<%= @rule_prefix %> -I INPUT 1 -p tcp -m state --state NEW --dport 662 -j ACCEPT

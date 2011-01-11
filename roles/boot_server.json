@@ -1,0 +1,19 @@
+{
+  "name": "boot_server",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "description": "The base role for the boot servers. Creates a Yum and NFS server.",
+  "run_list": [
+     "recipe[nfs::server]",
+     "recipe[yum::repo]",
+     "recipe[yum::client]",
+     "recipe[iptables::openvpn]",
+     "recipe[iptables::nat]",
+     "recipe[iptables::tun0]",
+     "role[base]"
+  ],
+  "override_attributes": {
+  }
+}

@@ -1,0 +1,31 @@
+= DESCRIPTION:
+Installs Job Control: A Rails application that provides a HTTP interface
+to schedule jobs.
+
+= REQUIREMENTS:
+Requires the apache2 recipe.
+
+= ATTRIBUTES: 
+
+job_control[:auth_username]= username that will be required to access
+ job control REST interfaces.
+
+job_control[:auth_password]= password that will be required to access
+ job control REST interfaces.
+
+job_control[:user]= user account under that the application will run as.
+Jobs will execute under this users account as well.
+
+Optional attributes:
+
+job_control[:version]= version of the RPM to install
+
+= USAGE:
+
+Example attributes in JSON:
+
+    "job_control": {
+        "auth_username": "jimmy",
+        "auth_password": "admin123",
+        "user": "bob"
+    }

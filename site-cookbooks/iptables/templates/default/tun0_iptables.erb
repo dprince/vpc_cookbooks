@@ -1,0 +1,3 @@
+#accept and forward traffic from tun0
+-A FWR -i tun+ -j ACCEPT
+-A FORWARD -i tun+ -j ACCEPT
